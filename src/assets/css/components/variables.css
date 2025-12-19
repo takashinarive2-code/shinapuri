@@ -1,0 +1,23 @@
+/* ==========================
+  Base Variables
+========================== */
+:root {
+  /* Colors */
+  --color-bg: #faf9f7;       /* 生成り */
+  --color-text: #111111;     /* 墨 */
+  --color-sub: #666666;
+  --color-accent: #8c1d18;   /* 捺染の赤 */
+
+  /* Fonts */
+  --font-base: "Hiragino Mincho ProN", "Yu Mincho", serif;
+
+  /* Spacing */
+  --space-xs: 8px;
+  --space-s: 16px;
+  --space-m: 24px;
+  --space-l: 32px;
+  --space-xl: 64px;
+
+  /* Layout */
+  --max-width: 1100px;
+}

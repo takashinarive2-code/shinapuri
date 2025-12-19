@@ -1,0 +1,61 @@
+/* ==========================
+   Page About
+========================== */
+.page-about .hero {
+  padding: var(--space-xl) 0 var(--space-l);
+  background-color: #f3f2ee;
+}
+
+.page-about .hero-title {
+  font-size: 24px;
+  letter-spacing: 0.1em;
+  margin-bottom: var(--space-s);
+}
+
+.page-about .hero-text {
+  color: var(--color-sub);
+}
+
+/* ==========================
+   Active Navigation
+========================== */
+
+/* Home */
+.page-home .site-nav a[href$="index.html"] {
+  color: var(--color-text);
+}
+
+.page-home .site-nav a[href$="index.html"]::after {
+  opacity: 1;
+  height: 3px;
+}
+
+/* About */
+.page-about .site-nav a[href$="about.html"] {
+  color: var(--color-text);
+}
+
+.page-about .site-nav a[href$="about.html"]::after {
+  opacity: 1;
+  height: 3px;
+}
+
+/* Products */
+.page-product .site-nav a[href$="product.html"] {
+  color: var(--color-text);
+}
+
+.page-product .site-nav a[href$="product.html"]::after {
+  opacity: 1;
+  height: 3px;
+}
+
+/* Contact */
+.page-contact .site-nav a[href$="contact.html"] {
+  color: var(--color-text);
+}
+
+.page-contact .site-nav a[href$="contact.html"]::after {
+  opacity: 1;
+  height: 3px;
+}

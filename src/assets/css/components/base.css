@@ -1,6 +1,318 @@
+/* ==========================
+  Base Variables
+========================== */
+:root {
+  /* Colors */
+  --color-bg: #faf9f7;       /* 生成り */
+  --color-text: #111111;     /* 墨 */
+  --color-sub: #666666;
+  --color-accent: #8c1d18;   /* 捺染の赤 */
+
+  /* Fonts */
+  --font-base: "Hiragino Mincho ProN", "Yu Mincho", serif;
+
+  /* Spacing */
+  --space-xs: 8px;
+  --space-s: 16px;
+  --space-m: 24px;
+  --space-l: 32px;
+  --space-xl: 64px;
+
+  /* Layout */
+  --max-width: 1100px;
+}
+
+/* ==========================
+  Reset / Base
+========================== */
+* {
+  box-sizing: border-box;
+}
+
 body {
   margin: 0;
-  font-family: "Hiragino Mincho ProN", serif;
+  font-family: var(--font-base);
+  color: var(--color-text);
+  background-color: var(--color-bg);
+  line-height: 1.9;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* ==========================
+  Layout
+========================== */
+.section-inner,
+.header-inner {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 var(--space-m);
+}
+
+section {
+  padding: var(--space-xl) 0;
+}
+
+/* ==========================
+  Header
+========================== */
+.header-inner {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+}
+
+.site-header {
+  border-bottom: 1px solid #e5e5e5;
+}
+
+.site-logo {
+  font-size: 18px;
+  font-weight: normal;
+  letter-spacing: 0.08em;
+}
+
+.site-nav {
+  justify-self: center;
+}
+
+
+.site-nav ul {
+  display: flex;
+  gap: var(--space-m);
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.site-nav a {
+  font-size: 20px;
+  color: var(--color-sub);
+  letter-spacing: 0.1em;
+  position: relative;
+  padding-bottom: 6px;
+}
+.site-nav a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -2px;
+  width: 100%;
+  height: 2px;           /* ← 太くする */
+  background-color: currentColor;
+  opacity: 0.45;
+}
+
+.site-nav a:hover::after {
+  opacity: 0.8;
+}
+/* ==========================
+   Hamburger
+========================== */
+.hamburger {
+  position: absolute;
+  top: var(--space-m);
+  left: var(--space-m);
+  width: 32px;
+  height: 24px;
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+}
+
+.hamburger span {
+  display: block;
+  height: 2px;
+  width: 100%;
+  background-color: var(--color-text);
+  margin-bottom: 6px;
+}
+
+.hamburger span:last-child {
+  margin-bottom: 0;
+}
+
+@media (min-width: 769px) {
+  .hamburger {
+    display: none;
+  }
+}
+
+
+
+/* ==========================
+  Footer
+========================== */
+.site-footer {
+  padding: var(--space-m) 0;
+  text-align: center;
+  font-size: 12px;
+  color: var(--color-sub);
+}
+
+/* ==========================
+   Hero
+========================== */
+.hero {
+  min-height: 50vh;
+  display: flex;
+  align-items: center;
+  position: relative;
+
+  /* 背景画像 */
+  background-image: url("/src/assets/images/hero_1536_1024.png");
+  background-size: cover;
+  background-position: center;
+
+  color: #fff;
+}
+
+.hero-inner {
+  position: relative;
+  z-index: 1;
+
+  max-width: var(--max-width);
+  padding: 0 var(--space-m);
+}
+
+.hero-copy {
+  font-size: 32px;
+  letter-spacing: 0.12em;
+  line-height: 1.8;
+  margin-bottom: var(--space-m);
+}
+
+.hero-sub {
+  font-size: 16px;
+  color: rgba(255, 255, 255, 0.85);
+}
+
+/* 画像の上に半透明の墨色フィルターを重ねる */
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+
+  /* 和風の暗幕 */
+  background: rgba(17, 17, 17, 0.45);
+}
+
+/* スマホ対応 */
+@media (max-width: 768px) {
+  .hero {
+    min-height: 80vh;
+  }
+
+  .hero-copy {
+    font-size: 24px;
+  }
+}
+
+
+/* ==========================
+   Sections
+========================== */
+.section-title {
+  font-size: 22px;
+  margin-bottom: var(--space-m);
+  letter-spacing: 0.08em;
+}
+
+.section-text {
+  color: var(--color-sub);
+}
+
+.section-link {
+  display: inline-block;
+  margin-top: var(--space-m);
+  font-size: 14px;
+  color: var(--color-accent);
+}
+
+/* ==========================
+   Products
+========================== */
+.product-list {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-m);
+  margin: var(--space-l) 0;
+}
+
+/* ==========================
+   Product Card
+========================== */
+.product-item {
+  text-align: center;
+}
+
+.product-image {
+  background-color: #f0eeea; /* 薄い生成り */
+  padding: var(--space-m);
+  margin-bottom: var(--space-s);
+}
+
+.product-image img {
+  width: 100%;
+  height: auto;
+}
+
+.product-name {
+  font-size: 16px;
+  font-weight: normal;
+  letter-spacing: 0.08em;
+  margin: var(--space-s) 0 4px;
+}
+
+.product-meta {
+  font-size: 12px;
+  color: var(--color-sub);
+}
+
+
+/* ==========================
+   Closing
+========================== */
+.closing {
   background: #111;
   color: #fff;
+  text-align: center;
+}
+
+.closing-text {
+  font-size: 18px;
+  letter-spacing: 0.1em;
+}
+
+.product-item:hover .product-image {
+  background-color: #ebe8e3;
+}
+
+@media (max-width: 768px) {
+  .product-list {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ==========================
+   Responsive
+========================== */
+@media (max-width: 768px) {
+  .product-list {
+    grid-template-columns: 1fr;
+  }
+
+  .hero-copy {
+    font-size: 24px;
+  }
 }

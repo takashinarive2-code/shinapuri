@@ -1,0 +1,183 @@
+
+/* ==========================
+   Hero
+========================== */
+.hero {
+  min-height: 50vh;
+  display: flex;
+  align-items: center;
+  position: relative;
+
+  /* 背景画像 */
+  background-image: url("/src/assets/images/hero_1536_1024.png");
+  background-size: cover;
+  background-position: center;
+
+  color: #fff;
+}
+
+.hero-inner {
+  position: relative;
+  z-index: 1;
+
+  max-width: var(--max-width);
+  padding: 0 var(--space-m);
+}
+
+.hero-copy {
+  font-size: 32px;
+  letter-spacing: 0.12em;
+  line-height: 1.8;
+  margin-bottom: var(--space-m);
+}
+
+.hero-sub {
+  font-size: 16px;
+  color: rgba(255, 255, 255, 0.85);
+}
+
+/* 画像の上に半透明の墨色フィルターを重ねる */
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+
+  /* 和風の暗幕 */
+  background: rgba(17, 17, 17, 0.45);
+}
+
+/* スマホ対応 */
+@media (max-width: 768px) {
+  .hero {
+    min-height: 80vh;
+  }
+
+  .hero-copy {
+    font-size: 24px;
+  }
+}
+
+/* ==========================
+   Products
+========================== */
+.product-list {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-m);
+  margin: var(--space-l) 0;
+}
+
+/* ==========================
+   Product Card
+========================== */
+.product-item {
+  text-align: center;
+}
+
+.product-image {
+  background-color: #f0eeea; /* 薄い生成り */
+  padding: var(--space-m);
+  margin-bottom: var(--space-s);
+}
+
+.product-image img {
+  width: 100%;
+  height: auto;
+}
+
+.product-name {
+  font-size: 16px;
+  font-weight: normal;
+  letter-spacing: 0.08em;
+  margin: var(--space-s) 0 4px;
+}
+
+.product-meta {
+  font-size: 12px;
+  color: var(--color-sub);
+}
+
+
+/* ==========================
+   Closing
+========================== */
+.closing {
+  background: #111;
+  color: #fff;
+  text-align: center;
+}
+
+.closing-text {
+  font-size: 18px;
+  letter-spacing: 0.1em;
+}
+
+.product-item:hover .product-image {
+  background-color: #ebe8e3;
+}
+
+@media (max-width: 768px) {
+  .product-list {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ==========================
+   Responsive
+========================== */
+@media (max-width: 768px) {
+  .product-list {
+    grid-template-columns: 1fr;
+  }
+
+  .hero-copy {
+    font-size: 24px;
+  }
+}
+
+/* ==========================
+   Hamburger Button
+========================== */
+.nav-toggle {
+  display: none;
+  background: none;
+  border: 0;
+  padding: var(--space-s);
+}
+
+.nav-toggle span {
+  display: block;
+  width: 24px;
+  height: 2px;
+  background: var(--color-text);
+  margin: 5px 0;
+}
+
+/* ==========================
+   SP Navigation
+========================== */
+@media (max-width: 768px) {
+  .nav-toggle {
+    display: block;
+  }
+
+  .site-nav {
+    display: none;
+  }
+
+  body.is-nav-open .site-nav {
+    display: block;
+    margin-top: var(--space-m);
+  }
+}
+@media (max-width: 768px) {
+  .site-nav ul {
+    border-top: 1px solid var(--color-border);
+    padding-top: var(--space-s);
+  }
+
+  .site-nav li {
+    padding: var(--space-s) 0;
+  }
+}
+
