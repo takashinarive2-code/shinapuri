@@ -1,0 +1,130 @@
+
+/* ==========================
+   Header Bottom / Navigation
+========================== */
+.header-bottom {
+  border-top: 1px solid #e5e5e5;
+}
+
+.site-nav {
+  display: block;
+}
+
+.site-nav ul {
+  display: flex;
+  gap: var(--space-m);
+  list-style: none;
+  padding: var(--space-s) 0;
+  margin: 0;
+}
+
+.site-nav a {
+  font-size: 20px;
+  color: var(--color-sub);
+  letter-spacing: 0.1em;
+  position: relative;
+  padding-bottom: 6px;
+}
+
+.site-nav a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -2px;
+  width: 100%;
+  height: 2px;           /* ← 太くする */
+  background-color: currentColor;
+  opacity: 0.45;
+}
+
+.site-nav a:hover::after {
+  opacity: 0.8;
+}
+
+.site-nav a.is-active {
+  color: var(--color-text);
+}
+
+.site-nav a.is-active::after {
+  opacity: 1;
+  height: 3px;
+}
+
+/* ==========================
+   Hamburger Button
+========================== */
+.nav-toggle {
+  background: none;
+  border: 0;
+  padding: var(--space-s);
+  cursor: pointer;
+
+  display: flex;
+  flex-direction: column;
+  gap: 6px;          /* 線と線の間隔はここで管理 */
+
+  position: relative;
+  z-index: 100;
+}
+
+.nav-toggle span {
+  width: 24px;
+  height: 2px;
+  background: var(--color-text);
+  transform-origin: center;
+  transition:
+    transform 0.35s cubic-bezier(0.4, 0, 0.2, 1),
+    opacity 0.25s ease;
+}
+
+/* ==========================
+   PCでは非表示
+========================== */
+@media (min-width: 769px) {
+  .nav-toggle {
+    display: none;
+  }
+}
+/* ==========================
+   SP Navigation
+========================== */
+@media (max-width: 768px) {
+  .site-nav {
+    opacity: 0;
+    transform: translateY(-8px);
+    pointer-events: none;
+  }
+  .site-nav ul {
+    flex-direction: column;
+    gap: var(--space-s);
+    border-top: 1px solid var(--color-border);
+    gap: var(--space-s);
+    padding-top: var(--space-s);
+  }
+  body.is-nav-open .site-nav {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+    transition:
+      opacity 0.3s ease,
+      transform 0.3s ease;
+  }
+}
+@media (max-width: 768px) {
+}
+
+
+/* ==========================
+   Hamburger → Closeのアニメーション
+========================== */
+body.is-nav-open .nav-toggle span:nth-child(1) {
+  transform: translateY(8px) rotate(45deg);
+}
+
+body.is-nav-open .nav-toggle span:nth-child(2) {
+  opacity: 0;
+}
+
+body.is-nav-open .nav-toggle span:nth-child(3) {
+  transform: translateY(-8px) rotate(-45deg);
+}

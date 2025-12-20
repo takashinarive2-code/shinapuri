@@ -14,7 +14,7 @@ section {
 /* ==========================
   Header
 ========================== */
-.header-inner {
+/* .header-inner {
   display: grid;
   grid-template-columns: auto 1fr auto;
   align-items: center;
@@ -22,7 +22,7 @@ section {
 
 .site-header {
   border-bottom: 1px solid #e5e5e5;
-}
+} */
 
 
 /* ==========================
@@ -48,65 +48,6 @@ section {
   letter-spacing: 0.12em;
   padding: 0 var(--space-m);
 }
-
-/* ==========================
-   Header Bottom / Navigation
-========================== */
-.header-bottom {
-  border-top: 1px solid #e5e5e5;
-}
-
-.site-nav ul {
-  display: flex;
-  gap: var(--space-m);
-  list-style: none;
-  padding: var(--space-s) 0;
-  margin: 0;
-}
-
-.site-nav {
-  justify-self: center;
-}
-
-.site-nav a {
-  font-size: 20px;
-  color: var(--color-sub);
-  letter-spacing: 0.1em;
-  position: relative;
-  padding-bottom: 6px;
-}
-
-.site-nav a::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  bottom: -2px;
-  width: 100%;
-  height: 2px;           /* ← 太くする */
-  background-color: currentColor;
-  opacity: 0.45;
-}
-
-.site-nav a:hover::after {
-  opacity: 0.8;
-}
-
-.site-nav a.is-active {
-  color: var(--color-text);
-}
-
-.site-nav a.is-active::after {
-  opacity: 1;
-  height: 3px;
-}
-
-@media (max-width: 768px) {
-  .site-nav ul {
-    flex-direction: column;
-    gap: var(--space-m);
-  }
-}
-
 
 /* ==========================
   Footer

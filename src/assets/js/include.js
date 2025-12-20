@@ -15,11 +15,15 @@ function initNavToggle() {
     });
 }
 
+// GitHub Pages対応用のベースパス設定
+const BASE = location.hostname.includes("github.io")
+    ? "/shinapuri/"
+    : "/";
 
 async function init() {
-    await includeHTML("header", "/src/pages/includes/header.html");
-    await includeHTML("footer", "/src/pages/includes/footer.html");
-    await includeHTML("closing", "/src/pages/includes/closing.html");
+    await includeHTML("header", `${BASE}src/pages/includes/header.html`);
+    await includeHTML("footer", `${BASE}src/pages/includes/footer.html`);
+    await includeHTML("closing", `${BASE}src/pages/includes/closing.html`);
     initNavToggle();
 }
 
