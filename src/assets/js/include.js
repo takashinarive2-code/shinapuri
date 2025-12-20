@@ -18,7 +18,7 @@ function initNavToggle() {
 // GitHub Pages対応用のベースパス設定
 const BASE = location.hostname.includes("github.io")
     ? "/shinapuri/"
-    : "/";
+    : "";
 
 async function init() {
     await includeHTML("header", `${BASE}src/pages/includes/header.html`);
