@@ -1,8 +1,13 @@
+console.log("include.js loaded");
+
 // header / footer / closingはhtmlを部品化
 async function includeHTML(id, file) {
     const res = await fetch(file);
     const html = await res.text();
-    document.getElementById(id).innerHTML = html;
+    const container = document.getElementById(id);
+    container.innerHTML = html;
+
+    // replaceBase(container);
 }
 
 function initNavToggle() {
@@ -15,15 +20,11 @@ function initNavToggle() {
     });
 }
 
-// GitHub Pages対応用のベースパス設定
-const BASE = location.hostname.includes("github.io")
-    ? "/shinapuri/"
-    : "";
-
 async function init() {
-    await includeHTML("header", `${BASE}src/pages/includes/header.html`);
-    await includeHTML("footer", `${BASE}src/pages/includes/footer.html`);
-    await includeHTML("closing", `${BASE}src/pages/includes/closing.html`);
+    // replaceBase(document);
+    await includeHTML("header", "page_components/header.html");
+    await includeHTML("footer", "page_components/footer.html");
+    await includeHTML("closing", "page_components/closing.html");
     initNavToggle();
 }
 

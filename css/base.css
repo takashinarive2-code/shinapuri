@@ -170,7 +170,7 @@ section {
   position: relative;
 
   /* 背景画像 */
-  background-image: url("/src/assets/images/hero_1536_1024.png");
+  background-image: url("../images/hero_1536_1024.png");
   background-size: cover;
   background-position: center;
 
