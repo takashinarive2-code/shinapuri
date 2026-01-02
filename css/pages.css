@@ -49,6 +49,7 @@
 .page-about .hero {
   padding: var(--space-xl) 0 var(--space-l);
   background-color: #f3f2ee;
+  background-image: url("../images/colors.png");
 }
 
 .page-about .hero-title {
@@ -58,7 +59,7 @@
 }
 
 .page-about .hero-text {
-  color: var(--color-sub);
+  color: var(--color-bg);
 }
 
 
